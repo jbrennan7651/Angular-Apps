@@ -5,7 +5,8 @@
             <p class="control has-icons-left">
               <input 
                 class="input" 
-                type="text" 
+                type="text"
+                #filterInput 
                 (keyup)="filter($any($event).target.value)"  
                 placeholder="Filter"
               /> 
@@ -21,7 +22,7 @@
           *ngFor="let note of filteredNotes; let i = index" 
           [routerLink]="[i]"
           [@itemAnim]
-          (delete)="deleteNote(i)"
+          (delete)="deleteNote(note)"
           [title]="note.title" 
           [body]="note.body" ></app-note-card>
     </div>

@@ -1,5 +1,5 @@
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { scan } from 'rxjs';
 import { Note } from 'src/app/shared/note.model';
 import { NotesService } from 'src/app/shared/notes.service';
@@ -88,6 +88,8 @@ export class NotesListComponent implements OnInit {
   notes: Note[] = new Array<Note>();
   filteredNotes: Note[] = new Array<Note>();
 
+  @ViewChild('filterInput') filterInputElRef !: ElementRef<HTMLInputElement>
+
   constructor(private notesService: NotesService) { }
 
   ngOnInit(): void {
@@ -96,9 +98,18 @@ export class NotesListComponent implements OnInit {
     this.filteredNotes = this.notes;
   }
 
-  deleteNote(id: number){
-    this.notesService.delete(id);
+  deleteNote(note: Note){
+    let noteId = this.notesService.getId(note);
+    this.notesService.delete(noteId);
+    this.filter(this.filterInputElRef.nativeElement.value);
   }
+
+  generateNoteURL(note: Note){
+    let noteId = this.notesService.getId(note);
+    return noteId;
+  }
+
+
   filter(query : string){
 
     let allResults: Note[] = new Array<Note>();
