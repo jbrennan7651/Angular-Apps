@@ -1,0 +1,21 @@
+
+<div class="mixer-body">
+
+    <h1>This is the word<span>Mixer</span></h1>
+    <p>Enter your name and click the button. The app will select letters randomly from your name to remake it</p>
+
+    <div class="name-box">
+        <input class="name-box" 
+        type="text" 
+        [(ngModel)]="name"
+        placeholder="Enter Your Name"
+        >
+
+        <button class="mixer-button" (click)="onClick(name)">
+            Rearrange your name!
+        </button>
+
+    </div>
+   
+</div>
+
