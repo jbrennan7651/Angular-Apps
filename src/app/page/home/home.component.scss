@@ -1,3 +1,5 @@
+
+
 .home-body{
     margin: auto;
     align-items: center;
@@ -12,9 +14,11 @@
         background-color: green;
         padding: 10%;
         align-items: center;
+        color: white;
 
-        #mixer{
-            max-width: 100px;
+        .buttons{
+            width: 100px;
+            
         }
     }
 

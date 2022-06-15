@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   title = "Home Page: One-way Binding"
-  filling = "This app takes a user input and mixed the letters randomly"
+  filling = "Click the button below to rearrange these letters"
 
   constructor() { }
 
@@ -22,14 +22,19 @@ export class HomeComponent implements OnInit {
       if(i == 0){
         text += filling.charAt(Math.floor(Math.random() * filling.length)).toUpperCase()
       }
-      else if(i == filling.length - 1){
-        text += '.'
-      }
+      // else if(i == filling.length - 1){
+      //   text += '.'
+      // }
       else{
         text += filling.charAt(Math.floor(Math.random() * filling.length)).toLowerCase()
       }
     }
 
+    this.filling = text;
+  }
+
+  reset(){
+    let text = "Click the button below to rearrange these letters"
     this.filling = text;
   }
 

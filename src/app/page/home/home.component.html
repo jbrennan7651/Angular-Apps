@@ -7,11 +7,21 @@
     <div class="description">
         <p id="info">{{ filling }}</p>
 
-        <button id="mixer"
-            (click) = 'onClick(filling)'
-        >
-            Mixer
-        </button>
+
+        <div class="buttons">
+            <button 
+                id="mixer"
+                (click) = 'onClick(filling)'
+            >Mixer
+            </button>
+
+            <button id="reset"
+                (click) = 'reset()'
+            > Reset</button>
+
+        </div>
+
+        
     </div>
 </div>
 

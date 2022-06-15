@@ -1,0 +1,45 @@
+
+
+
+
+<table class="movie-list" >
+    <tr>
+        <th> Index </th>
+        <th> Title </th>
+        <th> Release Date</th>
+    </tr>
+    <tr *ngFor="let movie of filteredArray; index as i; let o = odd; let e = even" [ngClass]="{even: e, odd: o}" 
+        (click)="displayMovie(movie)">
+        <td > {{ i + 1 }}</td>
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.releaseDate }}</td>
+    </tr>
+</table>
+
+<div class="user-input">
+    <div class="text-inputs">
+        <input type="text"
+            placeholder="Enter Movie Title"
+            [(ngModel)]="title"
+            class="movie-title"
+        >
+        <input type="text"
+            placeholder="Enter Movie Release Date"
+            [(ngModel)]="releaseDate"
+            class="movie-releaseDate"
+        >  
+    </div>
+
+    <div class="buttons">
+        <button (click)="addMovie(title,releaseDate)">
+            Add Movie
+        </button>
+    
+        <button (click)="clearList()"> Clear List</button>
+
+    </div>
+
+
+
+</div>
+

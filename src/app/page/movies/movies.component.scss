@@ -1,0 +1,45 @@
+table{
+    text-align: center;
+    margin: auto;
+    padding: 30px;
+
+    .odd{
+        color: green;
+    }
+    
+    .even{
+        color: purple;
+    }
+    
+
+}
+
+.user-input{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    align-items: center;
+    margin: auto;
+    bottom: 30px;
+
+    .text-inputs{
+        padding: 10px 10px;
+
+        .movie-title{
+            &:hover{
+                border-color: green;
+            }
+
+        }
+        .movie-releaseDate{
+            &:hover{
+                border-color: green;
+            }
+
+        }
+
+        
+    }
+}
+
+
