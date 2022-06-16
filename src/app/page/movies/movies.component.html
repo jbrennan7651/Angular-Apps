@@ -4,15 +4,18 @@
 
 <table class="movie-list" >
     <tr>
+        
         <th> Index </th>
         <th> Title </th>
         <th> Release Date</th>
+        <th> Director</th>
     </tr>
-    <tr *ngFor="let movie of filteredArray; index as i; let o = odd; let e = even" [ngClass]="{even: e, odd: o}" 
+    <tr *ngFor="let movie of movieList; index as i; let o = odd; let e = even" [ngClass]="{even: e, odd: o}" 
         (click)="displayMovie(movie)">
-        <td > {{ i + 1 }}</td>
+        <td >{{ i + 1 }}</td>
         <td>{{ movie.title }}</td>
         <td>{{ movie.releaseDate }}</td>
+        <td>{{ movie.director }}</td>
     </tr>
 </table>
 
@@ -28,14 +31,21 @@
             [(ngModel)]="releaseDate"
             class="movie-releaseDate"
         >  
+        <input type="text"
+            placeholder="Enter Director"
+            [(ngModel)]="director"
+            class="movie-director"
+        >  
     </div>
 
     <div class="buttons">
-        <button (click)="addMovie(title,releaseDate)">
+        <button (click)="addMovie(title,releaseDate,director)">
             Add Movie
         </button>
     
         <button (click)="clearList()"> Clear List</button>
+
+        <button (click)="updateList(title, releaseDate,director)">Update</button>
 
     </div>
 

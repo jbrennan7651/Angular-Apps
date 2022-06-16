@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { map } from 'rxjs';
+
 
 
 @Component({
@@ -12,13 +11,16 @@ import { map } from 'rxjs';
 
 export class MoviesComponent implements OnInit {
 
+
   @Input() title !: string;
   @Input() releaseDate !: string;
+  @Input() director !: string;
+  @Input() ngSwitch !: any;
 
   public movieList: Array<Movie> =[
-    // {title: 'Jurassic Park', releaseDate: '1993'},
-    // {title: 'Avengers', releaseDate: '2012'},
-    // {title: 'Jurassic World', releaseDate: '2015'}
+    {title: 'Jurassic Park', releaseDate: '1993', director: 'Steven Spielberg'},
+    {title: 'Avengers', releaseDate: '2012', director: 'Steven Spielberg'},
+    {title: 'Jurassic World', releaseDate: '2015', director: 'Steven Spielberg'}
   ]
 
   public filteredArray : Array<Movie> = [];
@@ -28,39 +30,33 @@ export class MoviesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addMovie(title: string, releaseDate: string){
-    let movie = new Movie(title, releaseDate)
+
+  addMovie(title: string, releaseDate: string, director: string){
+    let movie = new Movie(title, releaseDate, director)
     this.movieList.push(movie);
-    // for(let i of this.movieList){
-
-    //   if (movie.title == i.title){
-    //     i.releaseDate = movie.releaseDate;
-    //   }
-    // }  
-
-    //this.movieList.push(movie);
-
-    // this.filteredArray = this.movieList.filter(function(el){
-    //   return el.title != movie.title
-    // });
-
-    let movieMap = new Map<string,string>();
-    for (let i of this.movieList){
-      movieMap.set(i.releaseDate,i.title)
-    }
-   
-
-    
-
+    this.updateList(title, releaseDate, director)
     this.clearElements();
   }
 
-
-   
+  updateList(title: string, releaseDate: string, director: string){
+    let movie = new Movie(title, releaseDate, director)
+    this.movieList.push(movie);
+    for(let i of this.movieList){
+      if (movie.title == i.title){
+        i.releaseDate = movie.releaseDate;
+        i.director = movie.director;
+        this.movieList.pop()
+        this.clearElements();
+      }
+      
+    }  
+    
+  }
 
   clearElements(){
     this.title = ''
     this.releaseDate = ''
+    this.director = ''
   }
 
   clearList(){
@@ -72,6 +68,7 @@ export class MoviesComponent implements OnInit {
   displayMovie(movie: Movie){
     this.title = movie.title;
     this.releaseDate = movie.releaseDate;
+    this.director = movie.director;
   }
 
 }
@@ -80,10 +77,12 @@ export class Movie {
 
   title !: string;
   releaseDate !: string;
+  director !: string;
 
-  constructor(title: string, releaseDate: string){
+  constructor(title: string, releaseDate: string, director: string){
     this.title = title;
     this.releaseDate = releaseDate;
+    this.director = director;
   }
 
    

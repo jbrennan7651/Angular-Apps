@@ -3,6 +3,13 @@ table{
     margin: auto;
     padding: 30px;
 
+   .white{
+    background-color: white;
+   }
+   .red{
+    background-color: red;
+   }
+
     .odd{
         color: green;
     }
@@ -24,6 +31,7 @@ table{
 
     .text-inputs{
         padding: 10px 10px;
+        display: flex;
 
         .movie-title{
             &:hover{
@@ -32,6 +40,12 @@ table{
 
         }
         .movie-releaseDate{
+            &:hover{
+                border-color: green;
+            }
+
+        }
+        .movie-director{
             &:hover{
                 border-color: green;
             }

@@ -15,18 +15,18 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClick(filling: string){
+  onClick(){
     let text = "";
 
-    for (let i = 0; i < filling.length; i++){
+    for (let i = 0; i < this.filling.length; i++){
       if(i == 0){
-        text += filling.charAt(Math.floor(Math.random() * filling.length)).toUpperCase()
+        text += this.filling.charAt(Math.floor(Math.random() * this.filling.length)).toUpperCase()
       }
       // else if(i == filling.length - 1){
       //   text += '.'
       // }
       else{
-        text += filling.charAt(Math.floor(Math.random() * filling.length)).toLowerCase()
+        text += this.filling.charAt(Math.floor(Math.random() * this.filling.length)).toLowerCase()
       }
     }
 

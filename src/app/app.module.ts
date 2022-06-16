@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgSwitch } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './page/nav-bar/nav-bar.component';
@@ -9,6 +9,9 @@ import { FooterComponent } from './page/footer/footer.component';
 import { MixerComponent } from './page/mixer/mixer.component';
 import { FormsModule } from '@angular/forms';
 import { MoviesComponent } from './page/movies/movies.component';
+import { DynamicTableComponent } from './page/dynamic-table/dynamic-table.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { SwitcherComponent } from './page/switcher/switcher.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,17 @@ import { MoviesComponent } from './page/movies/movies.component';
     HomeComponent,
     FooterComponent,
     MixerComponent,
-    MoviesComponent
+    MoviesComponent,
+    DynamicTableComponent,
+    SwitcherComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    Ng2SmartTableModule
   ],
-  providers: [],
+  providers: [NgSwitch],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

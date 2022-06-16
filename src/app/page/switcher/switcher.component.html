@@ -1,0 +1,28 @@
+
+
+<div id="if">
+    <div id="if">
+        <h1 *ngIf="switchColor; else elseBlock" style="color: green;">Niko is an amazing Dog</h1>
+        <ng-template #elseBlock>
+          <h1 style="color:red">Niko is a good dog</h1>
+        </ng-template>
+        <div class="checkbox">
+          <label>
+            <input class="check" [(ngModel)]="switchColor" type="checkbox" data-toggle="toggle"><label>Switcher</label>
+          </label>
+        </div>
+    </div>
+</div>
+
+<div id="switch">
+    <div [ngSwitch]="day.getDay()">
+        <div *ngSwitchCase="0"><h1>Today is Sunday {{ day | date: 'short' }}</h1></div>
+        <div *ngSwitchCase="1"><h1>Today is Monday {{ day | date: 'short' }}</h1></div>
+        <div *ngSwitchCase="2"><h1>Today is Tuesday {{ day | date: 'short' }}</h1></div>
+        <div *ngSwitchCase="3"><h1>Today is Wednesday {{ day | date: 'short' }}</h1></div>
+        <div *ngSwitchCase="4"><h1>Today is Thursday {{ day | date: 'short' }}</h1></div>
+        <div *ngSwitchCase="5"><h1>Today is Friday {{ day | date: 'short' }}</h1></div>
+        <div *ngSwitchCase="6"><h1>Today is Saturday {{ day | date: 'short' }}</h1></div>
+        <div *ngSwitchDefault style="background-color:red;">Wrong</div>
+    </div>
+</div>
