@@ -1,0 +1,64 @@
+<div class="locale">
+    Buffalo
+</div>
+
+<div class="weather" *ngFor="let weather of weatherData.list,index as i" >
+    <div class="date">
+        {{ day | date: 'E'}}
+    </div>
+    <div class="weather-icon" [ngSwitch]="true">
+        <div *ngSwitchCase="weatherData.list[i].weather[0].id >= 200 && weatherData.list[i].weather[0].id < 300"><img src="../assets/11d@2x.png" alt=""></div>
+
+        <div *ngSwitchCase="weatherData.list[i].weather[0].id >= 300 && weatherData.list[i].weather[0].id < 400"><img src="../assets/09d@2x.png" alt=""></div>
+
+        <div *ngSwitchCase="weatherData.list[i].weather[0].id >= 500 && weatherData.list[i].weather[0].id< 600"><img src="../assets/10d@2x.png" alt=""></div>
+
+        <div *ngSwitchCase="weatherData.list[i].weather[0].id >= 600 && weatherData.list[i].weather[0].id< 700"><img src="../assets/13d@2x.png" alt=""></div>
+
+        <div *ngSwitchCase="weatherData.list[i].weather[0].id >= 700 && weatherData.list[i].weather[0].id < 800"><img src="../assets/50d@2x.png" alt=""></div>
+
+        <div *ngSwitchCase="weatherData.list[i].weather[0].id == 800"><img src="../assets/01d@2x.png" alt=""></div>
+
+        <div *ngSwitchCase="weatherData.list[i].weather[0].id== 801"><img src="../assets/02d@2x.png" alt=""></div> 
+
+        <div *ngSwitchCase="weatherData.list[i].weather[0].id == 802"><img src="../assets/03d@2x.png" alt=""></div> 
+
+        <div *ngSwitchCase="weatherData.list[i].weather[0].id == 803 || weatherData.list[i].weather[0].id == 804"><img src="../assets/04d@2x.png" alt=""></div> 
+
+        <div *ngSwitchDefault><img src="../assets/red-x.png" alt=""></div>
+        <div class="temp">
+            <div class="max-tem">
+                {{ weatherData.list[i].main.temp_max |  number: '1.0-0'}}°
+            </div>
+            <div class="min-temp">
+                {{ weatherData.list[i].main.temp_min | number: '1.0-0'}}°
+    
+            </div>
+            
+            
+        </div>
+
+    </div>
+    
+</div>
+
+<router-outlet></router-outlet>
+<!-- 
+<div class="weather">
+    <div class="date">
+        Tuesday
+    </div>
+    <div class="weather-icon">
+        <img src="../assets/02d@2x.png" alt="">
+    </div>
+    <div class="temp">
+        <div class="min-temp">
+            min°C
+
+        </div>
+        <div class="max-tem">
+            max°C
+        </div>
+        
+    </div>
+</div> -->
