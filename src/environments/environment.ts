@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  weatherApiBaseURL: 'https://community-open-weather-map.p.rapidapi.com/forecast?q=san%20francisco%2Cus&units=imperial&mode=json&cnt=5',
+  weatherApiBaseURL: 'https://community-open-weather-map.p.rapidapi.com/forecast?q=san%20francisco%2Cus&units=imperial&mode=json&cnt=5&exclude=current,minutely,hourly,alerts',
   XRapidAPIKeyHeaderName: 'X-RapidAPI-Key',
   XRapidAPIKeyHeaderValue: 'd908ef208fmshbc376a13b6a8ee1p17584djsn59f37b4e3446',
   XRapidAPIHostHeaderName: 'X-RapidAPI-Host',

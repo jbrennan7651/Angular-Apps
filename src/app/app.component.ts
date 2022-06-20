@@ -10,6 +10,7 @@ import { WeatherService } from './service/weather.service';
 export class AppComponent implements OnInit{
 
   public day = new Date();
+  dailyTemps: any = [];
 
   constructor(private weatherService: WeatherService) {}
 
@@ -29,17 +30,20 @@ export class AppComponent implements OnInit{
     })
   }
 
-  getDailyTemps(){
-    let minTemp = this.weatherData.list[0].main.temp_min;
-    let maxTemp = this.weatherData.list[0].main.temp_max;
-    for (let i = 0; i <  this.weatherData.list.length; i++){
-      if ( maxTemp < this.weatherData.list[i].main.temp_max){
-        maxTemp = this.weatherData.list[i].main.temp_max
-      }
-      else if (minTemp >  this.weatherData.list[i].main.temp_min){
-        minTemp = this.weatherData.list[i].main.temp_min
-      }
+  getDailyTemps(data: any){
+    for(let i = 0; i < data.length; i = i + 8){
+      this.dailyTemps.push(data[i])
     }
+    console.log(this.dailyTemps)
   }
+
+  movies: Array<Object> = [
+    {title: 'title',
+    director: 'director',
+    cast: 'cast',
+    releaseDate: 'releaseDate'
+    }
+  ]
   
 }
+
